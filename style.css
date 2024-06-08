@@ -1,0 +1,403 @@
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*body {*/
+/*    background: #eaeaea;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.container {*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    width: 1000px;*/
+/*    height: 600px;*/
+/*    background: #f5f5f5;*/
+/*    box-shadow: 0 30px 50px #dbdbdb;*/
+/*}*/
+
+/*.container .slide .item {*/
+/*    width: 200px;*/
+/*    height: 300px;*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    transform: translate(0, -50%);*/
+/*    border-radius: 20px;*/
+/*    box-shadow: 0 30px 50px #505050;*/
+/*    background-position: 50% 50%;*/
+/*    background-size: cover;*/
+/*    display: inline-block;*/
+/*    transition: 0.5s;*/
+/*}*/
+
+/*.slide .item:nth-child(1),*/
+/*.slide .item:nth-child(2) {*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    transform: translate(0, 0);*/
+/*    border-radius: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+
+/*.slide .item:nth-child(3) {*/
+/*    left: 50%;*/
+/*}*/
+
+/*.slide .item:nth-child(4) {*/
+/*    left: calc(50% + 220px);*/
+/*}*/
+
+/*.slide .item:nth-child(5) {*/
+/*    left: calc(50% + 440px);*/
+/*}*/
+
+/*.slide .item:nth-child(n + 6) {*/
+/*    left: calc(50% + 660px);*/
+/*    opacity: 0;*/
+/*}*/
+
+/*.item .content {*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 100px;*/
+/*    width: 300px;*/
+/*    text-align: left;*/
+/*    color: #eee;*/
+/*    transform: translate(0, -50%);*/
+/*    font-family: system-ui;*/
+/*    display: none;*/
+/*}*/
+
+/*.slide .item:nth-child(2) .content {*/
+/*    display: block;*/
+/*}*/
+
+/*.content .name {*/
+/*    font-size: 40px;*/
+/*    text-transform: uppercase;*/
+/*    font-weight: bold;*/
+/*    opacity: 0;*/
+/*    animation: animate 1s ease-in-out 1 forwards;*/
+/*}*/
+
+/*.content .des {*/
+/*    margin-top: 10px;*/
+/*    margin-bottom: 20px;*/
+/*    opacity: 0;*/
+/*    animation: animate 1s ease-in-out 0.3s 1 forwards;*/
+/*}*/
+
+/*.content button {*/
+/*    padding: 10px 20px;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*    opacity: 0;*/
+/*    animation: animate 1s ease-in-out 0.6s 1 forwards;*/
+/*}*/
+
+/*@keyframes animate {*/
+/*    from {*/
+/*        opacity: 0;*/
+/*        transform: translate(0, 100px);*/
+/*        filter: blur(33px);*/
+/*    }*/
+/*    to {*/
+/*        opacity: 1;*/
+/*        transform: translate(0);*/
+/*        filter: blur(0);*/
+/*    }*/
+/*}*/
+
+/*.button {*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*    position: absolute;*/
+/*    bottom: 20px;*/
+/*}*/
+
+/*.button button {*/
+/*    width: 40px;*/
+/*    height: 35px;*/
+/*    !*border: none;*!*/
+/*    border-radius: 8px;*/
+/*    cursor: pointer;*/
+/*    margin: 0 5px;*/
+/*    border: 1px solid #000;*/
+/*    transition: 0.3s;*/
+/*}*/
+
+/*.button button:hover {*/
+/*    background: #ababab;*/
+/*    color: #fff;*/
+/*}*/
+
+
+
+/*Давайте разберем CSS-код по блокам, чтобы понять, как стилизуется слайдер на странице. Этот код отвечает за оформление слайдов,
+ их анимацию и расположение элементов управления.*/
+
+/*### Сброс и общие стили для всего документа:*/
+
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+   }
+
+/*- `*`: Универсальный селектор, применяющийся ко всем элементам на странице.*/
+/*- `margin: 0; padding: 0;`: Сбрасывает отступы и поля всех элементов, чтобы избежать неожиданного пространства вокруг элементов.*/
+/*- `box-sizing: border-box;`: Изменяет модель коробки таким образом, что `padding` и `border` включаются в размеры элемента. Это облегчает управление размером элементов и избегает проблем с переполнением.*/
+
+/*### Стили для `<body>`:*/
+
+   body {
+       background: #eaeaea;
+       overflow: hidden;
+   }
+
+/*- `background: #eaeaea;`: Устанавливает серый цвет фона для всей страницы.*/
+/*- `overflow: hidden;`: Прячет прокрутку, предотвращая появление полос прокрутки, что фиксирует отображение на экране без прокрутки.*/
+
+/*### Стили для контейнера слайдера `.container`:*/
+
+   .container {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       width: 1000px;
+       height: 600px;
+       background: #f5f5f5;
+       box-shadow: 0 30px 50px #dbdbdb;
+   }
+
+/*- `position: absolute;`: Устанавливает абсолютное позиционирование относительно ближайшего предка с относительным или абсолютным позиционированием.*/
+/*- `top: 50%; left: 50%; transform: translate(-50%, -50%);`: Центрирует контейнер слайдера по вертикали и горизонтали.*/
+/*- `width: 1000px; height: 600px;`: Устанавливает фиксированные размеры для контейнера.*/
+/*- `background: #f5f5f5;`: Задаёт светло-серый фон контейнера.*/
+/*- `box-shadow: 0 30px 50px #dbdbdb;`: Добавляет тень вокруг контейнера, создавая эффект объема.*/
+
+/*### Стили для слайдов `.container .slide .item`:*/
+
+   .container .slide .item {
+       width: 200px;
+       height: 300px;
+       position: absolute;
+       top: 50%;
+       transform: translate(0, -50%);
+       border-radius: 20px;
+       box-shadow: 0 30px 50px #505050;
+       background-position: 50% 50%;
+       background-size: cover;
+       display: inline-block;
+       transition: 0.5s;
+   }
+
+/*- `width: 200px; height: 300px;`: Устанавливает размеры для каждого слайда.*/
+/*- `position: absolute;`: Позволяет точно позиционировать каждый слайд относительно родительского контейнера `.slide`.*/
+/*- `top: 50%; transform: translate(0, -50%);`: Центрирует слайды по вертикали в родительском контейнере.*/
+/*- `border-radius: 20px;`: Закругляет углы каждого слайда.*/
+/*- `box-shadow: 0 30px 50px #505050;`: Добавляет тень для каждого слайда, создавая эффект подъёма.*/
+/*- `background-position: 50% 50%;`: Центрирует фоновое изображение внутри слайда.*/
+/*- `background-size: cover;`: Заставляет фоновое изображение покрывать весь слайд, сохраняя его пропорции.*/
+/*- `display: inline-block;`: Устанавливает элемент как `inline-block`, что позволяет ему быть позиционируемым и иметь ширину/высоту.*/
+/*- `transition: 0.5s;`: Добавляет плавный переход при изменении свойств, например, при перемещении.*/
+
+/*### Расположение слайдов `.slide .item` в слайдере:*/
+
+   .slide .item:nth-child(1),
+   .slide .item:nth-child(2) {
+       top: 0;
+       left: 0;
+       transform: translate(0, 0);
+       border-radius: 0;
+       width: 100%;
+       height: 100%;
+   }
+
+/*- `.slide .item:nth-child(1), .slide .item:nth-child(2)`: Выравнивает первые два слайда так, чтобы они занимали весь контейнер слайдера, без закругленных углов и на позициях `top: 0; left: 0;`.*/
+/*- `top: 0; left: 0; transform: translate(0, 0);`: Убирает вертикальное центрирование и размещает слайды в верхнем левом углу контейнера.*/
+/*- `border-radius: 0;`: Убирает закругление углов для этих слайдов.*/
+/*- `width: 100%; height: 100%;`: Устанавливает, чтобы слайды занимали всю ширину и высоту контейнера.*/
+
+   .slide .item:nth-child(3) {
+       left: 50%;
+   }
+
+/*- `left: 50%;`: Размещает третий слайд слева на половине ширины контейнера.*/
+
+   .slide .item:nth-child(4) {
+       left: calc(50% + 220px);
+   }
+
+/*- `left: calc(50% + 220px);`: Размещает четвёртый слайд на 220 пикселей правее от середины контейнера.*/
+
+   .slide .item:nth-child(5) {
+       left: calc(50% + 440px);
+   }
+
+/*- `left: calc(50% + 440px);`: Размещает пятый слайд на 440 пикселей правее от середины контейнера.*/
+
+   .slide .item:nth-child(n + 6) {
+       left: calc(50% + 660px);
+       opacity: 0;
+   }
+
+/*- `left: calc(50% + 660px);`: Размещает все слайды, начиная с шестого, на 660 пикселей правее от середины контейнера.*/
+/*- `opacity: 0;`: Устанавливает прозрачность слайдов в ноль, чтобы они были невидимыми.*/
+
+/*### Стили для контента `.item .content`:*/
+
+   .item .content {
+       position: absolute;
+       top: 50%;
+       left: 100px;
+       width: 300px;
+       text-align: left;
+       color: #eee;
+       transform: translate(0, -50%);
+       font-family: system-ui;
+       display: none;
+   }
+
+/*- `position: absolute;`: Позволяет точно позиционировать контент внутри слайда.*/
+/*- `top: 50%; left: 100px; transform: translate(0, -50%);`: Центрирует контент по вертикали и смещает его на 100 пикселей вправо.*/
+/*- `width: 300px;`: Устанавливает ширину блока контента.*/
+/*- `text-align: left;`: Выравнивает текст по левому краю.*/
+/*- `color: #eee;`: Устанавливает светло-серый цвет текста.*/
+/*- `font-family: system-ui;`: Устанавливает шрифт для текста.*/
+/*- `display: none;`: Скрывает контент по умолчанию.*/
+
+/*### Показ контента для второго слайда:*/
+
+   .slide .item:nth-child(2) .content {
+       display: block;
+   }
+
+/*- `display: block;`: Показывает контент только для второго слайда, делая его видимым.*/
+
+/*### Стили для имени `.content .name`:*/
+
+   .content .name {
+       font-size: 40px;
+       text-transform: uppercase;
+       font-weight: bold;
+       opacity: 0;
+       animation: animate 1s ease-in-out 1 forwards;
+   }
+
+/*- `font-size: 40px;`: Устанавливает размер шрифта.*/
+/*- `text-transform: uppercase;`: Преобразует текст в верхний регистр.*/
+/*- `font-weight: bold;`: Устанавливает жирное начертание шрифта.*/
+/*- `opacity: 0;`: Устанавливает начальную прозрачность текста.*/
+/*- `animation: animate 1s ease-in-out 1 forwards;`: Применяет анимацию с названием `animate` на 1 секунду с плавным началом и концом (`ease-in-out`). Анимация воспроизводится один раз (`1`) и остаётся в конечном состоянии (`forwards`).*/
+
+/*### Стили для описания `.content .des`:*/
+
+   .content .des {
+       margin-top: 10px;
+       margin-bottom: 20px;
+       opacity: 0;
+       animation: animate 1s ease-in-out 0.3s 1 forwards;
+   }
+
+/*- `margin-top: 10px; margin-bottom: 20px;`: Устанавливает отступы сверху и снизу.*/
+/*- `opacity: 0;`: Устанавливает начальную прозрачность текста.*/
+/*- `animation: animate 1s ease-in-out 0.3s 1 forwards;`: Применяет анимацию с задержкой в 0.3 секунды.*/
+
+/*### Стили для кнопки `.content button`:*/
+
+   .content button {
+       padding: 10px 20px;
+       border: none;
+       cursor: pointer;
+       opacity: 0;
+       animation: animate 1s ease-in-out 0.6s 1 forwards;
+   }
+
+/*- `padding: 10px 20px;`: Устанавливает внутренние отступы.*/
+/*- `border: none;`: Убирает рамку кнопки.*/
+/*- `cursor: pointer;`: Изменяет указатель мыши на "руку", чтобы указать, что элемент кликабельный.*/
+/*- `opacity: 0;`: Устанавливает начальную прозрачность.*/
+/*- `animation: animate 1s ease-in-out 0.6s 1 forwards;`: Применяет анимацию с задержкой в 0.6 секунды.*/
+
+/*### Ключевые кадры анимации `@keyframes animate`:*/
+
+@keyframes animate {
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/*- `from { ... }`: Начальные состояния анимации — полная прозрачность, сдвиг вниз на 100 пикселей и размытие на 33 пикселя.*/
+/*- `to { ... }`: Конечные состояния анимации — полная видимость, отсутствие сдвига и размытия.*/
+
+/*Эта анимация создаёт плавное появление элементов с постепенным увеличением прозрачности и уменьшением размытия.*/
+
+/*### Стили для блока управления `.button`:*/
+
+   .button {
+       width: 100%;
+       text-align: center;
+       position: absolute;
+       bottom: 20px;
+   }
+
+/*- `width: 100%;`: Устанавливает ширину блока управления на всю ширину контейнера.*/
+/*- `text-align: center;`: Центрирует кнопки управления по горизонтали.*/
+/*- `position: absolute;`: Абсолютное позиционирование относительно контейнера.*/
+/*- `bottom: 20px;`: Размещает блок управления внизу контейнера с отступом в 20 пикселей.*/
+
+/*### Стили для кнопок управления `.button button`:*/
+
+   .button button {
+       width: 40px;
+       height: 35px;
+       border-radius: 8px;
+       cursor: pointer;
+       margin: 0 5px;
+       border: 1px solid #000;
+       transition: 0.3s;
+   }
+
+/*- `width: 40px; height: 35px;`: Устанавливает размеры кнопок.*/
+/*- `border-radius: 8px;`: Закругляет углы кнопок.*/
+/*- `cursor: pointer;`: Изменяет указатель мыши на "руку", чтобы указать, что элемент кликабельный.*/
+/*- `margin: 0 5px;`: Устанавливает горизонтальные отступы между кнопками.*/
+/*- `border: 1px solid #000;`: Добавляет чёрную рамку вокруг кнопок.*/
+/*- `transition: 0.3s;`: Применяет плавный переход при изменении стилей, например, при наведении.*/
+
+/*### Стили для состояния при наведении `.button button:hover`:*/
+
+   .button button:hover {
+       background: #ababab;
+       color: #fff;
+   }
+
+/*- `background: #ababab;`: Меняет цвет фона кнопки при наведении на серый.*/
+/*- `color: #fff;`: Изменяет цвет текста на белый при наведении.*/
+
+/*   Эти стили добавляют эффект наведения, улучшая визуальную отзывчивость кнопок.*/
+
+/*### Заключение*/
+
+/*    Этот CSS-код создаёт визуально привлекательный и функциональный слайдер. Он обеспечивает:*/
+
+/*- **Унифицированное форматирование**: Сбрасываются стандартные отступы и поля, что помогает избежать проблем с макетом.*/
+/*- **Центрирование и оформление контейнера**: Слайдер центрируется на странице и получает фон, тень, что добавляет глубину.*/
+/*- **Позиционирование слайдов**: Слайды позиционируются относительно контейнера, с разным размещением и видимостью для создания эффекта слайдера.*/
+/*- **Анимации и плавные переходы**: Добавлены анимации для плавного появления элементов и переходы для кнопок.*/
+/*- **Управление и интерактивность**: Кнопки управления оформлены и реагируют на взаимодействие пользователя, улучшая взаимодействие.*/
+

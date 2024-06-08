@@ -1,13 +1,120 @@
 <!doctype html>
 <html lang="en">
+<!--<!doctype html>: Определяет тип документа как HTML5.-->
+<!--<html lang="en">: Указывает, что язык содержимого страницы — английский.-->
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+<!--	<meta charset="UTF-8">: Определяет кодировку символов как UTF-8, что важно для корректного отображения текста на различных языках.-->
+<!--	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">:-->
+<!--	Управляет поведением и размером области просмотра на мобильных устройствах. В данном случае устанавливается фиксированная ширина, -->
+<!--	равная ширине устройства, и отключается масштабирование.-->
+<!--	<meta http-equiv="X-UA-Compatible" content="ie=edge">: Задаёт режим совместимости для старых версий Internet Explorer. -->
+<!--	IE будет использовать самый современный доступный режим.-->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+		  crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<!--	<link rel="stylesheet" href="...">: Подключает внешний CSS-файл с CDN для иконок Font Awesome.-->
+<!--	Используется для включения набора иконок.-->
+<!--	integrity: Проверка целостности ресурсов (SRI), позволяет убедиться, что ресурс не был изменён.-->
+<!--	crossorigin="anonymous": Указывает, что кросс-оригинальный запрос не должен отправлять учётные -->
+<!--	данные пользователя.-->
+<!--	referrerpolicy="no-referrer": Политика, определяющая, что информация о странице, с которой происходит переход,-->
+<!--	не будет передана.-->
+	
+	<title>Sidebar</title>
+	<link rel="stylesheet" href="style.css">
 </head>
+<!--<title>Sidebar</title>: Заголовок страницы, который отображается в закладке браузера.-->
+<!--<link rel="stylesheet" href="style.css">: Подключает локальный CSS-файл style.css, -->
+<!--содержащий стили для этой страницы.-->
+
 <body>
-<script src=""></script>
+<div class="container">
+<!--	<body>: Основная часть документа, содержащая всё видимое содержимое страницы.-->
+<!--	<div class="container">: Контейнер для основного содержимого. Обычно используется для центрирования и ограничения ширины контента.-->
+	
+	<div class="slide">
+<!--<div class="slide">: Контейнер для слайдов, внутри которого располагаются все элементы слайдера.-->
+		
+		<div class="item" style="background-image: url(https://i.ibb.co/qCkd9jS/img1.jpg);">
+			<div class="content">
+				<div class="name">Швейцария</div>
+				<div class="des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, in.</div>
+				<button>Увидеть больше</button>
+			</div>
+		</div>
+<!--	<div class="item" style="background-image: url(...);">: Один слайд, представляющий собой элемент div с фоном в виде изображения.
+ style="background-image: url(...);" - инлайн-стили задают фон для каждого слайда.-->
+<!--	<div class="content">: Контейнер для текстового содержимого и кнопки внутри каждого слайда.-->
+<!--	<div class="name">: Заголовок слайда, в данном случае - название страны.-->
+<!--	<div class="des">: Краткое описание или текст на слайде.-->
+<!--	<button>Увидеть больше</button>: Кнопка, которая может быть использована для взаимодействия, например,
+перехода к более подробной информации о слайде.-->
+<!--	Каждый из таких блоков <div class="item"> повторяется для разных изображений и текста, представляя различные слайды в карусели.-->
+		
+		<div class="item" style="background-image: url(https://i.ibb.co/jrRb11q/img2.jpg);">
+			<div class="content">
+				<div class="name">Финляндия</div>
+				<div class="des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, in.</div>
+				<button>Увидеть больше</button>
+			</div>
+		</div>
+		<div class="item" style="background-image: url(https://i.ibb.co/NSwVv8D/img3.jpg);">
+			<div class="content">
+				<div class="name">Исландия</div>
+				<div class="des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, in.</div>
+				<button>Увидеть больше</button>
+			</div>
+		</div>
+		<div class="item" style="background-image: url(https://i.ibb.co/Bq4Q0M8/img4.jpg);">
+			<div class="content">
+				<div class="name">Австралия</div>
+				<div class="des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, in.</div>
+				<button>Увидеть больше</button>
+			</div>
+		</div>
+		<div class="item" style="background-image: url(https://i.ibb.co/jTQfmTq/img5.jpg);">
+			<div class="content">
+				<div class="name">Нидерланды</div>
+				<div class="des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, in.</div>
+				<button>Увидеть больше</button>
+			</div>
+		</div>
+		<div class="item" style="background-image: url(https://i.ibb.co/RNkk6L0/img6.jpg);">
+			<div class="content">
+				<div class="name">Ирландия</div>
+				<div class="des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, in.</div>
+				<button>Увидеть больше</button>
+			</div>
+		</div>
+	</div>
+	<div class="button">
+		<button class="prev"><i class="fa-solid fa-arrow-left-long"></i></button>
+		<button class="next"><i class="fa-solid fa-arrow-right-long"></i></button>
+	</div>
+<!--<div class="button">: Контейнер для кнопок управления слайдером.-->
+<!--<button class="prev"><i class="fa-solid fa-arrow-left-long"></i></button>: Кнопка для перехода к предыдущему слайду.
+Иконка стрелки влево из Font Awesome.-->
+<!--<button class="next"><i class="fa-solid fa-arrow-right-long"></i></button>: Кнопка для перехода к следующему слайду.
+ Иконка стрелки вправо из Font Awesome.-->
+	
+</div>
+
+<script src="app.js"></script>
+<!--<script src="app.js"></script>: Подключает внешний JavaScript-файл app.js, который, вероятно,
+ содержит логику для управления слайдером, например, смену слайдов при нажатии на кнопки.-->
 </body>
 </html>
+
+Важные моменты:
+<!--Использование background-image в инлайн-стилях: Подходит для динамической загрузки изображений на основе данных,
+однако в реальном проекте желательно использовать CSS-классы для стилизации.-->
+<!--Font Awesome для иконок: Удобно и универсально для добавления иконок без необходимости создания собственных графических ресурсов.-->
+<!--Мета-теги для мобильных устройств: Улучшают отображение и взаимодействие на мобильных устройствах.-->
+<!--Внешние стили и скрипты: Разделение стилей и логики на отдельные файлы (style.css и app.js) соответствует принципам
+ хорошей практики веб-разработки.-->
